@@ -13,9 +13,9 @@ def do_search_query():
     # destinations
     driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[2]/div[2]/div/button[1]").click()
     # destinations options
-    driver.find_element(by=By.XPATH, value="/html/body/div[2]/div/div/div/div[2]/div/label[7]/span[2]").click()
-    driver.find_element(by=By.XPATH, value="/html/body/div[2]/div/div/div/div[2]/div/label[11]/span[1]/input").click()
-    driver.find_element(by=By.XPATH, value="/html/body/div[2]/div/div/div/div[2]/div/label[14]/span[1]/input").click()
+    driver.find_element(by=By.XPATH, value="/html/body/div[2]/div/div/div/div/div/label[14]/span[1]/input").click()
+    driver.find_element(by=By.XPATH, value="/html/body/div[2]/div/div/div/div/div/label[11]/span[1]/input").click()
+    driver.find_element(by=By.XPATH, value="/html/body/div[2]/div/div/div/div/div/label[7]/span[1]/input").click()
     # guests
     driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[2]/div[2]/div/button[2]").click()
     # guests options
