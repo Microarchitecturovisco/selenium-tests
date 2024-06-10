@@ -1,15 +1,9 @@
 import time
 
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Firefox()
-driver.get("http://localhost:18453")
-driver.maximize_window()
-driver.implicitly_wait(5)
 
-
-def do_search_query():
+def do_search_query(driver):
     # destinations
     driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[2]/div[2]/div/button[1]").click()
     # destinations options
@@ -47,25 +41,3 @@ def do_search_query():
     driver.find_element(by=By.XPATH, value="/html/body/div[2]/div/div/div[2]/div[2]/div/label[4]/span[1]/input").click()
     driver.find_element(by=By.XPATH, value="/html/body/div[2]/div/div/div[1]/div[2]/label[6]/span[1]/input").click()
     driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div[2]/div/button[5]").click()
-
-
-def refresh_offers():
-    driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div[1]/div[1]/button[5]").click()
-    time.sleep(10)
-
-
-def assert_3_offers():
-    listing = driver.find_element(by=By.XPATH, value="/html/body/div/div[2]").find_elements(by=By.TAG_NAME, value="div")
-    assert len(listing) == 3
-
-
-def buy_offer():
-    driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div[3]/div[3]/a/button").click()
-
-
-if __name__ == '__main__':
-    do_search_query()
-    time.sleep(5)
-
-    while True:
-        refresh_offers()
