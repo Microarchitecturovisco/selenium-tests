@@ -1,3 +1,4 @@
+import random
 import time
 
 from selenium import webdriver
@@ -17,9 +18,12 @@ def worker_task(initial_delay):
 
     while True:
         driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div[1]/div[1]/button[5]").click()
-        time.sleep(6)
+        time.sleep(random.randint(5, 10))
 
 
 if __name__ == '__main__':
-    initial_delay = [2, 4, 6, 8]
-    Parallel(n_jobs=4)(delayed(worker_task)(delay) for delay in initial_delay)
+    num_workers = 4
+
+    initial_delay = [x for x in range(2, num_workers * 2 + 2, 2)]
+
+    Parallel(n_jobs=num_workers)(delayed(worker_task)(delay) for delay in initial_delay)
